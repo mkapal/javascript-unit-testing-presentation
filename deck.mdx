@@ -1,0 +1,494 @@
+import { Head, Steps, FullScreenCode, Appear } from 'mdx-deck'
+import { dark } from '@mdx-deck/themes'
+import code from './code'
+
+export const theme = {
+  ...dark,
+  ...code,
+}
+
+<Head>
+  <title>Testing</title>
+</Head>
+
+# Testing
+
+for JavaScript developers
+
+<small style={{marginTop: '10rem'}}>Martin Kapal</small>
+
+---
+
+# Agenda
+
+
+<ul>
+  <Steps>
+    <li>What is the purpose of testing?</li>
+    <li>Types of testing</li>
+    <li>Why should we write unit tests?</li>
+    <li>Unit test structure</li>
+    <li>What to test?</li>
+    <li>What makes a good test?</li>
+    <li>Test frameworks for JavaScript</li>
+    <li>Code examples</li>
+    <li>Q & A</li>
+  </Steps>
+</ul>
+
+---
+
+# What is the purpose of testing?
+
+<ul>
+  <Steps>
+    <li>Verify that the product does what it is supposed to do</li>
+    <li>Quality software ➡ happy customers</li>
+  </Steps>
+</ul>
+
+---
+
+# Types of testing
+
+---
+
+# Types of testing
+
+<table style={{width: '100%'}}>
+  <tr>
+    <th style={{width: '25%'}}>Level</th>
+    <th style={{width: '25%'}}>Automation</th>
+    <th style={{width: '25%'}}>Approach</th>
+    <th style={{width: '25%'}}>Requirements</th>
+  </tr>
+  <tr style={{textAlign: 'center'}}>
+    <Appear>
+      <td>
+        <u>unit testing</u><br />
+        integration testing<br />
+        system testing
+      </td>
+      <td>
+        manual 💪<br />
+        <u>automated</u> 🕹
+      </td>
+      <td>
+        <u>white-box</u> 👀<br />
+        black-box 🙈
+      </td>
+      <td>
+        <u>functional</u><br />
+        non-functional<br />
+        <small>(performance, usability...)</small>
+      </td>
+    </Appear>
+  </tr>
+</table>
+
+<small style={{marginTop: '9rem'}}>
+  * <u>underlined</u> types are usually done by us developers
+</small>
+
+---
+
+import testerVsDev from './assets/tester-vs-developer.jpg';
+
+<img src={testerVsDev} style={{height: '50vh'}} />
+
+---
+
+# Unit testing
+
+---
+
+# Why should we write unit tests?
+
+<ul>
+  <Steps>
+    <li>Verify small units of code - functions, classes, components</li>
+    <li>Better understand the logic - self-documentation</li>
+    <li>Prevent breaking things during refactoring</li>
+  </Steps>
+</ul>
+
+---
+
+# Unit test structure
+
+<ul>
+  <Steps>
+    <li><strong>Arrange</strong> - get the system into the desired state</li>
+    <li><strong>Act</strong> - perform the action you want to test</li>
+    <li><strong>Assert</strong> - verify that the result is what you expected</li>
+  </Steps>
+</ul>
+
+---
+
+# What to test?
+
+<ul>
+  <Steps>
+    <li>happy paths 😁 - how a function is usually used</li>
+    <li>sad paths 😢 - edge cases, invalid inputs</li>
+  </Steps>
+</ul>
+
+---
+
+# What makes a good test?
+
+<ul>
+  <Steps>
+    <li><strong>fast</strong></li>
+    <li><strong>isolated</strong></li>
+    <li><strong>repeatable</strong></li>
+    <li><strong>self-validating</strong></li>
+    <li><strong>timely</strong></li>
+  </Steps>
+</ul>
+
+---
+
+# What makes a good test?
+
+## Fast
+
+<ul style={{height: '400px'}}>
+  <Steps>
+    <li>avoid using real data sources & services (database, network)</li>
+    <li>use <em>mocking</em> to create fake external dependencies</li>
+    <li>keep performance in mind</li>
+    <li>trade-off between confidence and speed</li>
+  </Steps>
+</ul>
+
+---
+
+# What makes a good test?
+
+## Isolated
+
+<ul style={{height: '400px'}}>
+  <Steps>
+    <li>test can run in any order, at any time</li>
+    <li>only one thing should be tested in one test</li>
+    <li>one reason to make the test fail</li>
+  </Steps>
+</ul>
+
+---
+
+# What makes a good test?
+
+## Repeatable
+
+<ul style={{height: '400px'}}>
+  <Steps>
+    <li>you will always get the same result when running the same test</li>
+  </Steps>
+</ul>
+
+---
+
+# What makes a good test?
+
+## Self-validating
+
+<ul style={{height: '400px'}}>
+  <Steps>
+    <li>tests can be run automatically</li>
+  </Steps>
+</ul>
+
+---
+
+# What makes a good test?
+
+## Timely
+
+<ul style={{height: '400px'}}>
+  <Steps>
+    <li>you should always write tests</li>
+    <li>you should run tests often</li>
+  </Steps>
+</ul>
+
+---
+
+# So how do I write tests for my app?
+
+<Appear>
+  <p>Use a test framework!</p>
+</Appear>
+
+---
+
+# Test frameworks for JavaScript
+
+
+<ul>
+  <Steps>
+    <li>Jest</li>
+    <li>Jasmine</li>
+    <li>Mocha</li>
+    <li>...and more</li>
+  </Steps>
+</ul>
+
+---
+
+# Code example time! 🧑🏻‍💻
+
+---
+
+📄 `divide.js`
+
+```jsx
+function divide(a, b) {
+  return a / b;
+}
+```
+
+---
+
+Let's test this using Jest
+
+---
+
+📄 `divide.test.js`
+
+<FullScreenCode>
+
+
+
+
+```jsx
+describe('My awesome division function', () => {
+
+
+
+
+
+
+
+});
+```
+
+</FullScreenCode>
+
+---
+
+📄 `divide.test.js`
+
+<FullScreenCode>
+
+```jsx
+describe('My awesome division function', () => {
+  it('should return 0.5 when dividing 1 by 2', () => {
+
+
+
+
+
+  });
+});
+  ```
+
+</FullScreenCode>
+
+---
+
+📄 `divide.test.js`
+
+<FullScreenCode>
+
+  ```jsx
+  describe('My awesome division function', () => {
+    it('should return 0.5 when dividing 1 by 2', () => {
+      // Arrange?
+
+      // Act
+
+      // Assert
+    });
+  });
+  ```
+
+</FullScreenCode>
+
+---
+
+📄 `divide.test.js`
+
+<FullScreenCode>
+
+  ```jsx
+  describe('My awesome division function', () => {
+    it('should return 0.5 when dividing 1 by 2', () => {
+      // Act
+
+      // Assert
+
+    });
+  });
+  ```
+
+</FullScreenCode>
+
+---
+
+📄 `divide.test.js`
+
+<FullScreenCode>
+
+  ```jsx
+  describe('My awesome division function', () => {
+    it('should return 0.5 when dividing 1 by 2', () => {
+      // Act
+      const result = divide(1, 2);
+      // Assert
+
+    });
+  });
+  ```
+
+</FullScreenCode>
+
+---
+
+📄 `divide.test.js`
+
+<FullScreenCode>
+
+  ```jsx
+  describe('My awesome division function', () => {
+    it('should return 0.5 when dividing 1 by 2', () => {
+      // Act
+      const result = divide(1, 2);
+      // Assert
+      expect(result).toEqual(0.5);
+    });
+  });
+  ```
+
+</FullScreenCode>
+
+---
+
+Hurray, the test has passed! 🎉
+
+import testsPassed from './assets/test-results-passed-1.png';
+
+<img src={testsPassed} style={{height: '25vh'}} />
+
+---
+
+📄 `divide.test.js`
+
+<FullScreenCode>
+
+  ```jsx
+  describe('My awesome division function', () => {
+    it('should return 0.5 when dividing 1 by 2', () => {
+      // Act
+      const result = divide(1, 2);
+      // Assert
+      expect(result).toEqual(0.5);
+    });
+  });
+  ```
+
+</FullScreenCode>
+
+---
+
+📄 `divide.test.js`
+
+<FullScreenCode>
+
+  ```jsx
+  describe('My awesome division function', () => {
+    it('should return 0.5 when dividing 1 by 2', () => {
+      const result = divide(1, 2);
+      expect(result).toEqual(0.5);
+    });
+  });
+  ```
+
+</FullScreenCode>
+
+---
+
+📄 `divide.test.js`
+
+<FullScreenCode>
+
+  ```jsx
+  describe('My awesome division function', () => {
+    it('should return 0.5 when dividing 1 by 2', () => {
+      const result = divide(1, 2);
+      expect(result).toEqual(0.5);
+    });
+
+    it('should return null if trying to divide by zero', () => {
+      const result = divide(1, 0);
+      expect(result).toEqual(null);
+    });
+  });
+  ```
+
+</FullScreenCode>
+
+---
+
+The tests have failed now 👎
+
+import testsFailed from './assets/test-results-failed.png';
+
+<img src={testsFailed} style={{height: '55vh'}} />
+
+---
+
+Let's fix that...
+
+---
+
+```jsx
+function divide(a, b) {
+  return a / b;
+}
+```
+
+---
+
+```jsx
+function divide(a, b) {
+  if (b === 0) {
+    return null;
+  }
+
+  return a / b;
+}
+```
+
+---
+
+Run our tests again...
+
+---
+
+Nice 👌
+
+import testsPassed2 from './assets/test-results-passed-2.png';
+
+<img src={testsPassed2} style={{height: '25vh'}} />
+
+---
+
+# Questions?
+
+---
+
+# Thank you!
