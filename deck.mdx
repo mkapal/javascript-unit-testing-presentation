@@ -30,8 +30,9 @@ for JavaScript developers
     <li>Unit test structure</li>
     <li>What to test?</li>
     <li>What makes a good test?</li>
-    <li>Test frameworks for JavaScript</li>
     <li>Code examples</li>
+    <li>Test-driven development</li>
+    <li>Testing React components</li>
     <li>Q & A</li>
   </Steps>
 </ul>
@@ -484,6 +485,46 @@ Nice 👌
 import testsPassed2 from './assets/test-results-passed-2.png';
 
 <img src={testsPassed2} style={{height: '25vh'}} />
+
+---
+
+# Test-driven development (TDD)
+
+Write tests first, then implement the functionality
+
+<ol>
+  <Steps>
+    <li>Write a test that <u>fails</u></li>
+    <li>Write the simplest code that <u>passes</u> the new test</li>
+    <li><u>Refactor</u> existing code</li>
+    <li>...repeat</li>
+  </Steps>
+</ol>
+
+---
+
+# Can I test React components?
+
+<Appear><p>Yes!</p></Appear>
+
+---
+
+# React Testing Library
+
+<a style={{color: '#76e2f1', marginBottom: '20px'}} href="https://testing-library.com/react">testing-library.com/react</a>
+
+```jsx
+import { render, screen } from '@testing-library/react';
+import { Button } from './Button.jsx';
+
+it('renders a disabled button if a prop "disabled" is passed', () => {
+  render(<Button disabled>Click me</Button>);
+
+  const button = screen.getByRole('button');
+
+  expect(button).toBeDisabled();
+});
+```
 
 ---
 
