@@ -1,9 +1,11 @@
-import { Head, Steps, FullScreenCode, Appear } from 'mdx-deck'
-import { dark } from '@mdx-deck/themes'
+import { Head, Steps, Appear } from 'mdx-deck'
+import { CodeSurfer } from "code-surfer"
+import { nightOwl } from "@code-surfer/themes"
+
 import code from './code'
 
 export const theme = {
-  ...dark,
+  ...nightOwl,
   ...code,
 }
 
@@ -51,6 +53,8 @@ for JavaScript developers
 ---
 
 # Types of testing
+
+Testing can be categorised by...
 
 ---
 
@@ -142,11 +146,11 @@ import testerVsDev from './assets/tester-vs-developer.jpg';
 
 <ul>
   <Steps>
-    <li><strong>fast</strong></li>
-    <li><strong>isolated</strong></li>
-    <li><strong>repeatable</strong></li>
-    <li><strong>self-validating</strong></li>
-    <li><strong>timely</strong></li>
+    <li>fast</li>
+    <li>isolated</li>
+    <li>repeatable</li>
+    <li>self-validating</li>
+    <li>timely</li>
   </Steps>
 </ul>
 
@@ -244,13 +248,15 @@ import testerVsDev from './assets/tester-vs-developer.jpg';
 
 ---
 
-📄 `divide.js`
+<CodeSurfer>
 
-```jsx
-function divide(a, b) {
-  return a / b;
-}
-```
+  ```js
+  function divide(a, b) {
+    return a / b;
+  }
+  ```
+
+</CodeSurfer>
 
 ---
 
@@ -258,123 +264,103 @@ Let's test this using Jest
 
 ---
 
-📄 `divide.test.js`
+<CodeSurfer>
 
-<FullScreenCode>
-
-
-
-
-```jsx
+```js title="divide.test.js"
 describe('My awesome division function', () => {
-
-
-
-
-
-
 
 });
 ```
 
-</FullScreenCode>
+```js title="divide.test.js" 1[1:9],3[2:3]
+describe('My awesome division function', () => {
 
----
+});
+```
 
-📄 `divide.test.js`
+```js title="divide.test.js" 1[10:39]
+describe('My awesome division function', () => {
 
-<FullScreenCode>
+});
+```
 
-```jsx
+```js title="divide.test.js" 1[42:49],3[1]
+describe('My awesome division function', () => {
+
+});
+```
+
+```js title="divide.test.js"
 describe('My awesome division function', () => {
   it('should return 0.5 when dividing 1 by 2', () => {
 
-
-
-
-
   });
 });
-  ```
+```
 
-</FullScreenCode>
+```js title="divide.test.js"
+describe('My awesome division function', () => {
+  it('should return 0.5 when dividing 1 by 2', () => {
+    // Arrange
 
----
+    // Act
 
-📄 `divide.test.js`
-
-<FullScreenCode>
-
-  ```jsx
-  describe('My awesome division function', () => {
-    it('should return 0.5 when dividing 1 by 2', () => {
-      // Arrange?
-
-      // Act
-
-      // Assert
-    });
+    // Assert
   });
-  ```
+});
+```
 
-</FullScreenCode>
 
----
+```js 3:5 title="divide.test.js"
+describe('My awesome division function', () => {
+  it('should return 0.5 when dividing 1 by 2', () => {
+    // Act
 
-📄 `divide.test.js`
-
-<FullScreenCode>
-
-  ```jsx
-  describe('My awesome division function', () => {
-    it('should return 0.5 when dividing 1 by 2', () => {
-      // Act
-
-      // Assert
-
-    });
+    // Assert
   });
-  ```
+});
+```
 
-</FullScreenCode>
-
----
-
-📄 `divide.test.js`
-
-<FullScreenCode>
-
-  ```jsx
-  describe('My awesome division function', () => {
-    it('should return 0.5 when dividing 1 by 2', () => {
-      // Act
-      const result = divide(1, 2);
-      // Assert
-
-    });
+```js title="divide.test.js"
+describe('My awesome division function', () => {
+  it('should return 0.5 when dividing 1 by 2', () => {
+    // Act
+    const result = divide(1, 2);
+    // Assert
   });
-  ```
+});
+```
 
-</FullScreenCode>
-
----
-
-📄 `divide.test.js`
-
-<FullScreenCode>
-
-  ```jsx
-  describe('My awesome division function', () => {
-    it('should return 0.5 when dividing 1 by 2', () => {
-      // Act
-      const result = divide(1, 2);
-      // Assert
-      expect(result).toEqual(0.5);
-    });
+```js title="divide.test.js"
+describe('My awesome division function', () => {
+  it('should return 0.5 when dividing 1 by 2', () => {
+    // Act
+    const result = divide(1, 2);
+    // Assert
+    expect(result).toEqual(0.5);
   });
-  ```
+});
+```
 
-</FullScreenCode>
+```js title="divide.test.js"
+describe('My awesome division function', () => {
+  it('should return 0.5 when dividing 1 by 2', () => {
+    const result = divide(1, 2);
+    expect(result).toEqual(0.5);
+  });
+});
+```
+
+```js title="divide.test.js"
+describe('My awesome division function', () => {
+  it('should return 0.5 when dividing 1 by 2', () => {
+    const result = divide(1, 2);
+    expect(result).toEqual(0.5);
+  });
+});
+```
+
+</CodeSurfer>
 
 ---
 
@@ -386,28 +372,7 @@ import testsPassed from './assets/test-results-passed-1.png';
 
 ---
 
-📄 `divide.test.js`
-
-<FullScreenCode>
-
-  ```jsx
-  describe('My awesome division function', () => {
-    it('should return 0.5 when dividing 1 by 2', () => {
-      // Act
-      const result = divide(1, 2);
-      // Assert
-      expect(result).toEqual(0.5);
-    });
-  });
-  ```
-
-</FullScreenCode>
-
----
-
-📄 `divide.test.js`
-
-<FullScreenCode>
+<CodeSurfer>
 
   ```jsx
   describe('My awesome division function', () => {
@@ -417,14 +382,6 @@ import testsPassed from './assets/test-results-passed-1.png';
     });
   });
   ```
-
-</FullScreenCode>
-
----
-
-📄 `divide.test.js`
-
-<FullScreenCode>
 
   ```jsx
   describe('My awesome division function', () => {
@@ -440,7 +397,7 @@ import testsPassed from './assets/test-results-passed-1.png';
   });
   ```
 
-</FullScreenCode>
+</CodeSurfer>
 
 ---
 
@@ -456,13 +413,13 @@ Let's fix that...
 
 ---
 
+<CodeSurfer>
+
 ```jsx
 function divide(a, b) {
   return a / b;
 }
 ```
-
----
 
 ```jsx
 function divide(a, b) {
@@ -473,6 +430,8 @@ function divide(a, b) {
   return a / b;
 }
 ```
+
+</CodeSurfer>
 
 ---
 
@@ -509,11 +468,9 @@ Write tests first, then implement the functionality
 
 ---
 
-# React Testing Library
+<CodeSurfer>
 
-<a style={{color: '#76e2f1', marginBottom: '20px'}} href="https://testing-library.com/react">testing-library.com/react</a>
-
-```jsx
+```jsx title="React Testing Library" subtitle="https://testing-library.com/react"
 import { render, screen } from '@testing-library/react';
 import { Button } from './Button.jsx';
 
@@ -525,6 +482,8 @@ it('renders a disabled button if a prop "disabled" is passed', () => {
   expect(button).toBeDisabled();
 });
 ```
+
+</CodeSurfer>
 
 ---
 

@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "mdx-deck": "4.0.0"
+  },
+  "dependencies": {
+    "code-surfer": "^3.1.1"
   }
 }
