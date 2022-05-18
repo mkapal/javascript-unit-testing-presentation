@@ -351,15 +351,6 @@ describe('My awesome division function', () => {
 });
 ```
 
-```js title="divide.test.js"
-describe('My awesome division function', () => {
-  it('should return 0.5 when dividing 1 by 2', () => {
-    const result = divide(1, 2);
-    expect(result).toEqual(0.5);
-  });
-});
-```
-
 </CodeSurfer>
 
 ---
@@ -469,6 +460,58 @@ Write tests first, then implement the functionality
 ---
 
 <CodeSurfer>
+
+```jsx title="React Testing Library" subtitle="https://testing-library.com/react"
+import { render, screen } from '@testing-library/react';
+import { Button } from './Button.jsx';
+
+it('renders a disabled button if a prop "disabled" is passed', () => {
+  render(<Button disabled>Click me</Button>);
+
+  const button = screen.getByRole('button');
+
+  expect(button).toBeDisabled();
+});
+```
+
+```jsx 5 title="React Testing Library" subtitle="https://testing-library.com/react"
+import { render, screen } from '@testing-library/react';
+import { Button } from './Button.jsx';
+
+it('renders a disabled button if a prop "disabled" is passed', () => {
+  render(<Button disabled>Click me</Button>);
+
+  const button = screen.getByRole('button');
+
+  expect(button).toBeDisabled();
+});
+```
+
+```jsx 7 title="React Testing Library" subtitle="https://testing-library.com/react"
+import { render, screen } from '@testing-library/react';
+import { Button } from './Button.jsx';
+
+it('renders a disabled button if a prop "disabled" is passed', () => {
+  render(<Button disabled>Click me</Button>);
+
+  const button = screen.getByRole('button');
+
+  expect(button).toBeDisabled();
+});
+```
+
+```jsx 9 title="React Testing Library" subtitle="https://testing-library.com/react"
+import { render, screen } from '@testing-library/react';
+import { Button } from './Button.jsx';
+
+it('renders a disabled button if a prop "disabled" is passed', () => {
+  render(<Button disabled>Click me</Button>);
+
+  const button = screen.getByRole('button');
+
+  expect(button).toBeDisabled();
+});
+```
 
 ```jsx title="React Testing Library" subtitle="https://testing-library.com/react"
 import { render, screen } from '@testing-library/react';
